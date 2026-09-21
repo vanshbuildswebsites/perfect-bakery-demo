@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Perfect Bakery — Indore</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --cream:#f8f1e7;
+  --paper:#fffaf3;
+  --brown:#3a2119;
+  --brown2:#5a3326;
+  --orange:#d97938;
+  --orange2:#ef9a58;
+  --text:#2b1a15;
+  --muted:#806e64;
+  --white:#fffdf9;
+  --line:rgba(58,33,25,.13);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--cream);
+  color:var(--text);
+  font-family:"DM Sans",sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  display:block;
+  width:100%;
+}
+
+/* DEMO BAR */
+
+.demo{
+  background:var(--brown);
+  color:#ffd9ad;
+  text-align:center;
+  padding:9px 12px;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+/* NAV */
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(248,241,231,.9);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+  min-height:78px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:25px;
+}
+
+.container{
+  width:min(1160px,92%);
+  margin:auto;
+}
+
+.logo{
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+  font-weight:700;
+  letter-spacing:-1px;
+}
+
+.logo span{
+  color:var(--orange);
+}
+
+.logo small{
+  display:block;
+  font-family:"DM Sans",sans-serif;
+  font-size:7px;
+  letter-spacing:2.5px;
+  color:var(--muted);
+  margin-top:2px;
+  font-weight:800;
+}
+
+.links{
+  display:flex;
+  gap:30px;
+  font-size:11px;
+  font-weight:700;
+  color:var(--brown2);
+}
+
+.links a{
+  transition:.25s;
+}
+
+.links a:hover{
+  color:var(--orange);
+}
+
+.nav-btn{
+  background:var(--brown);
+  color:white;
+  padding:12px 19px;
+  border-radius:30px;
+  font-size:10px;
+  font-weight:800;
+  transition:.3s;
+}
+
+.nav-btn:hover{
+  background:var(--orange);
+  transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+  min-height:700px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 85% 15%,rgba(217,121,56,.14),transparent 26%),
+    var(--paper);
+}
+
+.hero-grid{
+  min-height:700px;
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  align-items:center;
+  gap:65px;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  color:var(--orange);
+  font-size:10px;
+  letter-spacing:2.3px;
+  font-weight:800;
+  text-transform:uppercase;
+  margin-bottom:22px;
+}
+
+.eyebrow::before{
+  content:"✦";
+  font-size:13px;
+}
+
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(58px,7vw,92px);
+  line-height:.91;
+  letter-spacing:-5px;
+  color:var(--brown);
+}
+
+.hero h1 em{
+  color:var(--orange);
+  font-style:italic;
+}
+
+.hero-copy{
+  max-width:470px;
+  color:var(--muted);
+  line-height:1.85;
+  font-size:14px;
+  margin-top:25px;
+}
+
+.actions{
+  display:flex;
+  gap:11px;
+  flex-wrap:wrap;
+  margin-top:32px;
+}
+
+.btn{
+  padding:14px 22px;
+  border-radius:30px;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.5px;
+  transition:.3s;
+}
+
+.primary{
+  background:var(--orange);
+  color:white;
+}
+
+.primary:hover{
+  background:var(--brown);
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(217,121,56,.2);
+}
+
+.outline{
+  border:1px solid var(--line);
+  color:var(--brown);
+}
+
+.outline:hover{
+  border-color:var(--orange);
+  color:var(--orange);
+  transform:translateY(-3px);
+}
+
+/* HERO VISUAL */
+
+.hero-visual{
+  height:590px;
+  position:relative;
+}
+
+.hero-main{
+  position:absolute;
+  right:0;
+  top:0;
+  width:76%;
+  height:100%;
+  object-fit:cover;
+  border-radius:190px 190px 8px 8px;
+  filter:saturate(.9);
+}
+
+.hero-card{
+  position:absolute;
+  left:0;
+  bottom:35px;
+  width:43%;
+  background:white;
+  padding:8px;
+  box-shadow:0 20px 50px rgba(58,33,25,.15);
+  transform:rotate(-3deg);
+}
+
+.hero-card img{
+  height:250px;
+  object-fit:cover;
+}
+
+.floating{
+  position:absolute;
+  right:4%;
+  top:35px;
+  background:var(--brown);
+  color:#fff4e8;
+  border-radius:50%;
+  width:112px;
+  height:112px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-family:"Playfair Display",serif;
+  font-size:14px;
+  line-height:1.25;
+  transform:rotate(8deg);
+  box-shadow:0 15px 35px rgba(58,33,25,.18);
+}
+
+/* MARQUEE */
+
+.marquee{
+  background:var(--orange);
+  color:white;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.marquee-track{
+  display:inline-flex;
+  gap:38px;
+  padding:14px 0;
+  font-size:10px;
+  letter-spacing:2px;
+  font-weight:800;
+  animation:move 24s linear infinite;
+}
+
+.marquee-track span{
+  color:#ffe4c8;
+}
+
+@keyframes move{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* COMMON */
+
+.section{
+  padding:105px 0;
+}
+
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:30px;
+  margin-bottom:48px;
+}
+
+.kicker{
+  color:var(--orange);
+  font-size:9px;
+  letter-spacing:2.5px;
+  font-weight:800;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+
+.title{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(40px,5vw,63px);
+  line-height:.98;
+  letter-spacing:-2.5px;
+  color:var(--brown);
+}
+
+.description{
+  max-width:390px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+}
+
+/* MENU */
+
+.menu{
+  background:var(--cream);
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.menu-card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  overflow:hidden;
+  transition:.35s;
+}
+
+.menu-card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 18px 35px rgba(58,33,25,.08);
+}
+
+.menu-img{
+  height:290px;
+  overflow:hidden;
+}
+
+.menu-img img{
+  height:100%;
+  object-fit:cover;
+  transition:.6s;
+}
+
+.menu-card:hover img{
+  transform:scale(1.06);
+}
+
+.menu-content{
+  padding:22px;
+}
+
+.number{
+  color:var(--orange);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1.5px;
+}
+
+.menu-content h3{
+  font-family:"Playfair Display",serif;
+  font-size:23px;
+  margin:7px 0;
+}
+
+.menu-content p{
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.7;
+}
+
+/* STORY */
+
+.story{
+  background:var(--brown);
+  color:white;
+}
+
+.story-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:85px;
+  align-items:center;
+}
+
+.story .title{
+  color:white;
+}
+
+.story .description{
+  color:#d6bfb2;
+}
+
+.story-visual{
+  height:570px;
+  position:relative;
+}
+
+.story-one{
+  width:75%;
+  height:500px;
+  object-fit:cover;
+  border-radius:150px 150px 5px 5px;
+}
+
+.story-two{
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:45%;
+  height:270px;
+  object-fit:cover;
+  border:8px solid var(--brown);
+}
+
+.story-copy{
+  color:#d8c4b9;
+  font-size:14px;
+  line-height:1.9;
+  margin-top:25px;
+}
+
+.rule{
+  width:65px;
+  height:2px;
+  background:var(--orange2);
+  margin:28px 0;
+}
+
+/* SPECIALS */
+
+.specials{
+  background:#fffaf4;
+}
+
+.special-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:17px;
+}
+
+.special{
+  min-height:420px;
+  position:relative;
+  overflow:hidden;
+  border-radius:5px;
+}
+
+.special img{
+  height:100%;
+  object-fit:cover;
+  transition:.7s;
+}
+
+.special:hover img{
+  transform:scale(1.05);
+}
+
+.special-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:end;
+  padding:32px;
+  background:linear-gradient(transparent,rgba(35,18,13,.82));
+  color:white;
+}
+
+.special-overlay h3{
+  font-family:"Playfair Display",serif;
+  font-size:34px;
+}
+
+.special-overlay p{
+  font-size:11px;
+  color:#f1dfd4;
+  margin-top:5px;
+}
+
+/* FEATURES */
+
+.features{
+  background:var(--cream);
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.feature{
+  background:var(--paper);
+  border:1px solid var(--line);
+  padding:35px;
+  min-height:230px;
+  transition:.3s;
+}
+
+.feature:hover{
+  transform:translateY(-6px);
+  border-color:rgba(217,121,56,.4);
+}
+
+.icon{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background:#f5dfcb;
+  color:var(--orange);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:25px;
+  font-weight:800;
+}
+
+.feature h3{
+  font-family:"Playfair Display",serif;
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+.feature p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
+
+/* VISIT */
+
+.visit{
+  background:#f0e3d4;
+}
+
+.visit-box{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background:var(--paper);
+  overflow:hidden;
+}
+
+.visit-content{
+  padding:60px;
+}
+
+.visit-content h2{
+  font-family:"Playfair Display",serif;
+  font-size:50px;
+  line-height:.98;
+  color:var(--brown);
+}
+
+.visit-content > p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+  margin:22px 0;
+}
+
+.info{
+  display:flex;
+  gap:15px;
+  margin:13px 0;
+  font-size:11px;
+  color:#67564d;
+  line-height:1.6;
+}
+
+.info strong{
+  min-width:58px;
+  color:var(--orange);
+  font-size:8px;
+  letter-spacing:1.5px;
+}
+
+.visit-image{
+  min-height:470px;
+  overflow:hidden;
+}
+
+.visit-image img{
+  height:100%;
+  object-fit:cover;
+}
+
+/* FOOTER */
+
+footer{
+  background:#261611;
+  color:#a98c7d;
+  padding:50px 0 25px;
+}
+
+.footer-top{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  padding-bottom:35px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.footer-logo{
+  color:white;
+  font-family:"Playfair Display",serif;
+  font-size:28px;
+  font-weight:700;
+}
+
+.footer-logo span{
+  color:var(--orange2);
+}
+
+.footer-text{
+  max-width:350px;
+  font-size:11px;
+  line-height:1.8;
+  margin-top:9px;
+}
+
+.footer-links{
+  display:flex;
+  gap:25px;
+  font-size:10px;
+}
+
+.footer-links a:hover{
+  color:#ffd2aa;
+}
+
+.footer-bottom{
+  padding-top:20px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  font-size:8px;
+  letter-spacing:.7px;
+}
+
+/* REVEAL */
+
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:.8s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .links{
+    display:none;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+    padding:75px 0;
+  }
+
+  .hero{
+    min-height:auto;
+  }
+
+  .hero-visual{
+    height:500px;
+  }
+
+  .story-grid{
+    grid-template-columns:1fr;
+    gap:60px;
+  }
+
+  .feature-grid{
+    grid-template-columns:1fr;
+  }
+
+  .visit-box{
+    grid-template-columns:1fr;
+  }
+
+  .menu-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:620px){
+
+  .hero h1{
+    font-size:57px;
+    letter-spacing:-3px;
+  }
+
+  .hero-visual{
+    height:420px;
+  }
+
+  .hero-main{
+    width:78%;
+  }
+
+  .hero-card{
+    width:48%;
+  }
+
+  .hero-card img{
+    height:190px;
+  }
+
+  .floating{
+    width:90px;
+    height:90px;
+    font-size:11px;
+  }
+
+  .section{
+    padding:78px 0;
+  }
+
+  .section-head{
+    display:block;
+  }
+
+  .description{
+    margin-top:20px;
+  }
+
+  .menu-grid{
+    grid-template-columns:1fr;
+  }
+
+  .menu-img{
+    height:350px;
+  }
+
+  .story-visual{
+    height:420px;
+  }
+
+  .story-one{
+    height:350px;
+  }
+
+  .story-two{
+    height:210px;
+  }
+
+  .special-grid{
+    grid-template-columns:1fr;
+  }
+
+  .special{
+    min-height:360px;
+  }
+
+  .visit-content{
+    padding:40px 27px;
+  }
+
+  .visit-content h2{
+    font-size:40px;
+  }
+
+  .visit-image{
+    min-height:350px;
+  }
+
+  .footer-top,
+  .footer-bottom{
+    flex-direction:column;
+  }
+
+  .footer-links{
+    flex-wrap:wrap;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="demo">
+  CONCEPT DEMO — NOT AN OFFICIAL WEBSITE
+</div>
+
+
+<nav>
+  <div class="container nav-inner">
+
+    <a href="#" class="logo">
+      PERFECT <span>BAKERY</span>
+      <small>INDORE · SINCE 2017</small>
+    </a>
+
+    <div class="links">
+      <a href="#menu">Menu</a>
+      <a href="#story">Our Story</a>
+      <a href="#specials">Specials</a>
+      <a href="#visit">Visit</a>
+    </div>
+
+    <a href="tel:+917314062475" class="nav-btn">
+      CALL NOW
+    </a>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+
+  <div class="container hero-grid">
+
+    <div class="reveal">
+
+      <div class="eyebrow">
+        Bakery · Fast Food · Desserts
+      </div>
+
+      <h1>
+        Baked<br>
+        with <em>love.</em>
+      </h1>
+
+      <p class="hero-copy">
+        Cakes, pastries, breads, cookies and everyday bakery
+        favourites — made for the little moments that deserve
+        something delicious.
+      </p>
+
+      <div class="actions">
+
+        <a href="#menu" class="btn primary">
+          EXPLORE MENU →
+        </a>
+
+        <a href="tel:+917314062475" class="btn outline">
+          CALL BAKERY
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-visual reveal">
+
+      <img
+        class="hero-main"
+        src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1100&q=85"
+        alt="Celebration cake"
+      >
+
+      <div class="hero-card">
+        <img
+          src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=85"
+          alt="Fresh bakery pastries"
+        >
+      </div>
+
+      <div class="floating">
+        FRESH<br>
+        EVERY<br>
+        DAY
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<div class="marquee">
+
+  <div class="marquee-track">
+
+    FRESHLY BAKED
+    <span>✦</span>
+    CAKES
+    <span>✦</span>
+    PASTRIES
+    <span>✦</span>
+    COOKIES
+    <span>✦</span>
+    BREAD
+    <span>✦</span>
+    DESSERTS
+    <span>✦</span>
+
+    FRESHLY BAKED
+    <span>✦</span>
+    CAKES
+    <span>✦</span>
+    PASTRIES
+    <span>✦</span>
+    COOKIES
+    <span>✦</span>
+    BREAD
+    <span>✦</span>
+    DESSERTS
+    <span>✦</span>
+
+  </div>
+
+</div>
+
+
+<section class="section menu" id="menu">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <div>
+        <div class="kicker">From The Counter</div>
+
+        <h2 class="title">
+          Something<br>
+          for every craving.
+        </h2>
+      </div>
+
+      <p class="description">
+        A concept showcase of the bakery categories customers
+        can discover when visiting Perfect Bakery.
+      </p>
+
+    </div>
+
+
+    <div class="menu-grid">
+
+      <article class="menu-card reveal">
+
+        <div class="menu-img">
+          <img
+            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=85"
+            alt="Chocolate cake"
+          >
+        </div>
+
+        <div class="menu-content">
+          <div class="number">01 · CELEBRATIONS</div>
+          <h3>Cakes</h3>
+          <p>
+            Classic cakes and celebration-ready favourites
+            for birthdays and special moments.
+          </p>
+        </div>
+
+      </article>
+
+
+      <article class="menu-card reveal">
+
+        <div class="menu-img">
+          <img
+            src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=85"
+            alt="Pastries"
+          >
+        </div>
+
+        <div class="menu-content">
+          <div class="number">02 · SWEET BITES</div>
+          <h3>Pastries</h3>
+          <p>
+            Soft, creamy and indulgent treats made for
+            an everyday sweet break.
+          </p>
+        </div>
+
+      </article>
+
+
+      <article class="menu-card reveal">
+
+        <div class="menu-img">
+          <img
+            src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=85"
+            alt="Fresh bread"
+          >
+        </div>
+
+        <div class="menu-content">
+          <div class="number">03 · DAILY BAKE</div>
+          <h3>Breads</h3>
+          <p>
+            Fresh bakery staples that fit breakfast,
+            snacks and everyday meals.
+          </p>
+        </div>
+
+      </article>
+
+
+      <article class="menu-card reveal">
+
+        <div class="menu-img">
+          <img
+            src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=85"
+            alt="Cookies"
+          >
+        </div>
+
+        <div class="menu-content">
+          <div class="number">04 · CRUNCH</div>
+          <h3>Cookies</h3>
+          <p>
+            Crunchy, comforting bakery bites to take home
+            or enjoy with your evening chai.
+          </p>
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section story" id="story">
+
+  <div class="container story-grid">
+
+    <div class="story-visual reveal">
+
+      <img
+        class="story-one"
+        src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=900&q=85"
+        alt="Bakery display"
+      >
+
+      <img
+        class="story-two"
+        src="https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=700&q=85"
+        alt="Fresh baked goods"
+      >
+
+    </div>
+
+
+    <div class="reveal">
+
+      <div class="kicker">
+        Perfect Bakery
+      </div>
+
+      <h2 class="title">
+        Simple food.<br>
+        Good memories.
+      </h2>
+
+      <div class="rule"></div>
+
+      <p class="story-copy">
+        Perfect Bakery is an Indore bakery located in Scheme No. 54,
+        serving cakes, pastries, breads, biscuits, desserts and
+        savoury bakery favourites.
+      </p>
+
+      <p class="story-copy">
+        The website concept keeps the experience simple:
+        discover what you want, find the bakery and get in touch.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section specials" id="specials">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <div>
+        <div class="kicker">Sweet Moments</div>
+
+        <h2 class="title">
+          Made for<br>
+          celebrations.
+        </h2>
+      </div>
+
+      <p class="description">
+        Whether it's a birthday, evening craving or a quick
+        bakery run, there's always a reason for something sweet.
+      </p>
+
+    </div>
+
+
+    <div class="special-grid">
+
+      <div class="special reveal">
+
+        <img
+          src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&w=1200&q=85"
+          alt="Celebration cake"
+        >
+
+        <div class="special-overlay">
+          <h3>Celebration Cakes</h3>
+          <p>Make the moment a little sweeter.</p>
+        </div>
+
+      </div>
+
+
+      <div class="special reveal">
+
+        <img
+          src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=900&q=85"
+          alt="Bakery cookies"
+        >
+
+        <div class="special-overlay">
+          <h3>Little Treats</h3>
+          <p>Perfect for an everyday craving.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section features">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <div>
+        <div class="kicker">The Bakery Experience</div>
+
+        <h2 class="title">
+          Why people<br>
+          come back.
+        </h2>
+      </div>
+
+      <p class="description">
+        A clean digital experience that makes it easier for
+        customers to discover the bakery before visiting.
+      </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+      <div class="feature reveal">
+
+        <div class="icon">✦</div>
+
+        <h3>Fresh Favourites</h3>
+
+        <p>
+          Browse a visual menu of cakes, pastries, breads,
+          cookies and other bakery staples.
+        </p>
+
+      </div>
+
+
+      <div class="feature reveal">
+
+        <div class="icon">♡</div>
+
+        <h3>For Every Occasion</h3>
+
+        <p>
+          From quick snacks to birthdays and celebrations,
+          discover something for every kind of moment.
+        </p>
+
+      </div>
+
+
+      <div class="feature reveal">
+
+        <div class="icon">↗</div>
+
+        <h3>Easy To Find</h3>
+
+        <p>
+          Get directions and contact details without having
+          to search through multiple platforms.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section visit" id="visit">
+
+  <div class="container">
+
+    <div class="visit-box reveal">
+
+      <div class="visit-content">
+
+        <div class="kicker">
+          Find The Bakery
+        </div>
+
+        <h2>
+          Your next<br>
+          sweet stop.
+        </h2>
+
+        <p>
+          Visit Perfect Bakery in Scheme No. 54, Vijay Nagar,
+          Indore.
+        </p>
+
+
+        <div class="info">
+          <strong>ADDRESS</strong>
+          <span>
+            49 GH, Beside Mataji Ka Mandir,
+            Scheme No. 54, Vijay Nagar,
+            Indore, Madhya Pradesh 452010
+          </span>
+        </div>
+
+
+        <div class="info">
+          <strong>HOURS</strong>
+          <span>
+            Daily · approximately 8:00 AM – 10:30 PM
+          </span>
+        </div>
+
+
+        <div class="actions">
+
+          <a
+            href="tel:+917314062475"
+            class="btn primary"
+          >
+            CALL +91 731 406 2475
+          </a>
+
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Perfect+Bakery+49+GH+Scheme+54+Indore"
+            target="_blank"
+            class="btn outline"
+          >
+            GET DIRECTIONS
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="visit-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=1100&q=85"
+          alt="Bakery interior concept"
+        >
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-top">
+
+      <div>
+
+        <div class="footer-logo">
+          PERFECT <span>BAKERY</span>
+        </div>
+
+        <p class="footer-text">
+          A concept website created to demonstrate a modern
+          digital presence for Perfect Bakery, Indore.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+        <a href="#menu">Menu</a>
+        <a href="#story">Story</a>
+        <a href="#specials">Specials</a>
+        <a href="#visit">Visit</a>
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 Perfect Bakery Concept
+      </span>
+
+      <span>
+        CONCEPT DEMO · NOT AN OFFICIAL WEBSITE
+      </span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+const observer = new IntersectionObserver(
+  entries => {
+
+    entries.forEach(entry => {
+
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+      }
+
+    });
+
+  },
+  {
+    threshold:.12
+  }
+);
+
+document.querySelectorAll(".reveal").forEach(el=>{
+  observer.observe(el);
+});
+
+</script>
+
+</body>
+</html>
